@@ -3,6 +3,7 @@ package reisinger.htl;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	    EratosthenesPrimeSieve prime = new EratosthenesPrimeSieve();
+        System.out.println(prime.isPrime(7));
     }
 }
