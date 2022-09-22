@@ -6,23 +6,27 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     @Override
     public boolean isPrime(int p) {
-        ArrayList<Integer> primeNumbers = new ArrayList<Integer>();
-        boolean[] primeBool = new boolean[p];
-
-        for (int i=2; i<p; i++) {
-            primeBool[i] = true;
-        }
-
-
-        for (int i = 2; i < p; i++) {
-            if (primeBool[i]) {
-                primeNumbers.add(i);
-                for (int j = i * i; j < p+1; j += i) {
-                    primeBool[j] = false;
+        int [] temp = new int [p+1];
+        temp [0] = 2;
+        int index = 1;
+        int prime = 1;
+        boolean isPrime = false;
+        while((prime += 2) <= p+1) {
+            isPrime = true;
+            for(int i = 0; i < index; i++) {
+                if(prime % temp [i] == 0) {
+                    isPrime = false;
+                    break;
                 }
             }
+            if(isPrime) {
+                temp [index++] = prime;
+            }
         }
-
+        ArrayList<Integer>  primeNumbers = new ArrayList<>();
+        while(--index >= 0) {
+            primeNumbers.add(temp [index]);
+        }
         if (primeNumbers.contains(p)) {
             return true;
         }
