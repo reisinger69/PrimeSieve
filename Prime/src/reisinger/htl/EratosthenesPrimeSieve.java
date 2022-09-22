@@ -53,7 +53,8 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
     public void printPrimes() {
         for (int i :
                 primes) {
-            System.out.println(i + " - ");
+            System.out.print(i + " - ");
         }
+        System.out.print("Ende");
     }
 }
