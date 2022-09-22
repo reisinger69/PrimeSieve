@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class EratosthenesPrimeSieve implements PrimeSieve {
 
+    ArrayList<Integer> primes;
+
+
     public EratosthenesPrimeSieve(int max) {
-        boolean[] isPrimes = new boolean[max];
+        primes = new ArrayList<>();
+
         for (int i = 0; i < max; i++) {
-            isPrimes[i] = isPrime(i);
+            if (isPrime(i)) {
+                primes.add(i);
+            }
         }
+        printPrimes();
     }
 
     @Override
@@ -44,6 +51,9 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     @Override
     public void printPrimes() {
-
+        for (int i :
+                primes) {
+            System.out.println(i + " - ");
+        }
     }
 }
